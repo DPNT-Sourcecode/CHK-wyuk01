@@ -65,17 +65,10 @@ def checkout(skus):
             break
 
         else:
-            mini_count =
-
-
-
-
-
-
-
-
-
-
+            total += price
+            mult_counts = Counter(multiple)
+            for p, q in mult_counts.iteritems():
+                counts[p] -= q
 
     # Secondly handle removals
     for product, (num_needed_to_remove, product_to_remove, num_to_remove) in REMOVERS.iteritems():
@@ -110,7 +103,7 @@ def checkout(skus):
 #print(checkout("BBBBEEEE"))
 #print(checkout("FFFF"))
 
-print(wrap("hello", 2))
+#print(checkout("ZSZX"))
 
 
 
