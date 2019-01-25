@@ -17,14 +17,16 @@ def checkout(skus):
     print(counts)
 
     for product in counts:
-        if product in counts:
+        if product in PRICES:
             pass
 
         else:
+            print(product + "not valid")
             return -1
 
 print(checkout(1))
 print(checkout("ABCDEFAB"))
+
 
 
 
