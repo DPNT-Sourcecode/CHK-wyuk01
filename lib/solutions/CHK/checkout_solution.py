@@ -56,12 +56,18 @@ def checkout(skus):
     # This is horrifically inefficient :(
     products, amount, price = COMBO_DEAL
 
-    # make a regular expression:
     regex = "[^" + "".join(products) + "]"
-    deal_skus = re.sub(regex, )
+    deal_skus = re.sub(regex, "", skus)
 
     # Split into multiples
-    wrap(deal_skus, amount)
+    for multiple in wrap(deal_skus, amount):
+        if len(multiple) < amount:
+            break
+
+        else:
+            mini_count =
+
+
 
 
 
@@ -103,6 +109,8 @@ def checkout(skus):
 #print(checkout("AAAAAA"))
 #print(checkout("BBBBEEEE"))
 #print(checkout("FFFF"))
+
+print(wrap("hello", 2))
 
 
 
