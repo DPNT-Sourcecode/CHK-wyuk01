@@ -16,16 +16,16 @@ def checkout(skus):
     counts = Counter(skus)
     print(counts)
 
-    for product in counts:
+    for product, quantity in counts.iteritems():
         if product in PRICES:
-            pass
+
 
         else:
-            print(product + "not valid")
             return -1
 
 print(checkout(1))
 print(checkout("ABCDEFAB"))
+
 
 
 
