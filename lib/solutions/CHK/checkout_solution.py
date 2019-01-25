@@ -27,6 +27,8 @@ PRICES = {"A": {1: 50, 3: 130, 5: 200},
           "Y": {1: 20},
           "Z": {1: 21}}
 
+PRICE_QUANTITIES = {product: sorted(deals.keys(), reverse=True) for product, deals in PRICES.iteritems()}
+
 # e.g. 2 Es allow for the removal of 1 B.
 REMOVERS = {"E": (2, "B", 1),
             "F": (3, "F", 1),
@@ -34,7 +36,7 @@ REMOVERS = {"E": (2, "B", 1),
             "R": (3, "Q", 1),
             "U": (4, "U", 1)}
 
-PRICE_QUANTITIES = {product: sorted(deals.keys(), reverse=True) for product, deals in PRICES.iteritems()}
+COMBO_DEALS = (frozenset("S", "T", "X", "Y", "Z"), 3, 45)
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -44,8 +46,14 @@ def checkout(skus):
 
     total = 0
 
-    # First get the quantity of each product
+    # Get the quantity of each product
     counts = Counter(skus)
+
+    # Firstly handle combo deals.
+    combo_counts = {product: quantity for product, quantity in }
+
+
+    # Secondly handle removals
 
     # Removals first
     for product, (num_needed_to_remove, product_to_remove, num_to_remove) in REMOVERS.iteritems():
@@ -56,6 +64,8 @@ def checkout(skus):
             new_count = max(0, counts[product_to_remove] - (num_to_remove * removal_instances))
             #print(counts[product_to_remove], new_count)
             counts[product_to_remove] = new_count
+
+    # Lastly handle standard multiple items
 
     # Loop through each product.
     # If it doesn't exist, return -1
@@ -80,3 +90,4 @@ def checkout(skus):
 #print(checkout("AAAAAA"))
 #print(checkout("BBBBEEEE"))
 #print(checkout("FFFF"))
+
