@@ -50,7 +50,8 @@ def checkout(skus):
     counts = Counter(skus)
 
     # Firstly handle combo deals.
-
+    for products, amount, price in COMBO_DEALS:
+        
 
 
 
@@ -92,6 +93,7 @@ def checkout(skus):
 #print(checkout("AAAAAA"))
 #print(checkout("BBBBEEEE"))
 #print(checkout("FFFF"))
+
 
 
 
