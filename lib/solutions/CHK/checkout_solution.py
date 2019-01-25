@@ -32,7 +32,7 @@ REMOVERS = {"E": (2, "B", 1),
             "F": (3, "F", 1),
             "N": (3, "M", 1),
             "R": (3, "Q", 1),
-            "U": (3, "U", 1)}
+            "U": (4, "U", 1)}
 
 PRICE_QUANTITIES = {product: sorted(deals.keys(), reverse=True) for product, deals in PRICES.iteritems()}
 
@@ -80,3 +80,4 @@ def checkout(skus):
 #print(checkout("AAAAAA"))
 #print(checkout("BBBBEEEE"))
 #print(checkout("FFFF"))
+
