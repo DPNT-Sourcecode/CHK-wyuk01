@@ -36,7 +36,8 @@ REMOVERS = {"E": (2, "B", 1),
             "R": (3, "Q", 1),
             "U": (4, "U", 1)}
 
-COMBO_DEALS = (frozenset(["S", "T", "X", "Y", "Z"]), 3, 45)
+# products in the deal listed in descending order of price
+COMBO_DEALS = (["S", "T", "X", "Y", "Z"].sort(), 3, 45)
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -51,7 +52,9 @@ def checkout(skus):
 
     # Firstly handle combo deals.
     for products, amount, price in COMBO_DEALS:
-        
+        # list he products in the deal in descending order.
+        prices = []
+
 
 
 
@@ -93,6 +96,7 @@ def checkout(skus):
 #print(checkout("AAAAAA"))
 #print(checkout("BBBBEEEE"))
 #print(checkout("FFFF"))
+
 
 
 
