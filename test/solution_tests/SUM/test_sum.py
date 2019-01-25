@@ -15,6 +15,3 @@ class TestSum(unittest.TestCase):
         self.assertRaises(ValueError, sum_solution.compute, -1, -1)
         self.assertRaises(ValueError, sum_solution.compute, 20, -1)
         self.assertRaises(ValueError, sum_solution.compute, 100, 200)
-
-
-
