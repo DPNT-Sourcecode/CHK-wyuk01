@@ -1,9 +1,13 @@
 
 
+SKU
+
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    if type(skus) not str:
+    if not isinstance(skus, basestring):
+        return -1
 
 
     raise NotImplementedError()
+
