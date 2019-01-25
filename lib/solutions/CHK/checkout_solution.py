@@ -40,19 +40,12 @@ def checkout(skus):
     for product, quantity in counts.iteritems():
         if product in PRICES:
             for price_quantity in PRICE_QUANTITIES[product]:
-                saving_instances = price_quantity // quantity
+                saving_instances = quantity // price_quantity
 
                 if saving_instances > 0:
+                    total += PRICES[product][price_quantity] * saving_instances
+                    quantity -= price_quantity * saving_instances
 
-
-            while quantity > 0:
-                #print("quantity", product, quantity)
-                for price_quantity in PRICE_QUANTITIES[product]:
-                    #print("price quantity", product, price_quantity)
-                    if price_quantity <= quantity:
-                        quantity -= price_quantity
-                        total += PRICES[product][price_quantity]
-                        break
         else:
             return -1
 
@@ -60,3 +53,4 @@ def checkout(skus):
 
 print(checkout("AAAAAA"))
 print(checkout("BBBBEEEE"))
+
