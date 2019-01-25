@@ -36,7 +36,7 @@ REMOVERS = {"E": (2, "B", 1),
             "R": (3, "Q", 1),
             "U": (4, "U", 1)}
 
-# products in the deal listed in descending order of price
+# products in the deal listed in descending order of price per unit
 COMBO_DEAL = (sorted(["S", "T", "X", "Y", "Z"], key=lambda x: PRICES[x][1], reverse=True), 3, 45)
 
 # noinspection PyUnusedLocal
@@ -52,9 +52,9 @@ def checkout(skus):
 
     # Firstly handle combo deals.
     # This is horrifically inefficient :(
-    # for products, amount, price in COMBO_DEAL:
-    #
-    #     for product in products:
+    products, amount, price = COMBO_DEAL
+    deal_skus = re.sub('[^atcg]', '', str)
+
 
 
 
@@ -63,15 +63,10 @@ def checkout(skus):
 
 
     # Secondly handle removals
-
-    # Removals first
     for product, (num_needed_to_remove, product_to_remove, num_to_remove) in REMOVERS.iteritems():
         removal_instances = counts.get(product, 0) // num_needed_to_remove
-        #print("instances", removal_instances)
 
         if product_to_remove in counts:
-            new_count = max(0, counts[product_to_remove] - (num_to_remove * removal_instances))
-            #print(counts[product_to_remove], new_count)
             counts[product_to_remove] = new_count
 
     # Lastly handle standard multiple items
@@ -99,3 +94,4 @@ def checkout(skus):
 #print(checkout("AAAAAA"))
 #print(checkout("BBBBEEEE"))
 #print(checkout("FFFF"))
+
