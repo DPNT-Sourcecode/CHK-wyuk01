@@ -75,7 +75,7 @@ def checkout(skus):
         removal_instances = counts.get(product, 0) // num_needed_to_remove
 
         if product_to_remove in counts:
-            counts[product_to_remove] = new_count
+            counts[product_to_remove] = max(0, counts[product_to_remove] - removal_instances)
 
     # Lastly handle standard multiple items
 
