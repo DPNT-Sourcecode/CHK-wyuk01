@@ -1,5 +1,6 @@
 from collections import Counter
 from textwrap import wrap
+import re
 
 PRICES = {"A": {1: 50, 3: 130, 5: 200},
           "B": {1: 30, 2: 45},
@@ -56,7 +57,11 @@ def checkout(skus):
     products, amount, price = COMBO_DEAL
 
     # make a regular expression:
-    regexp = ""
+    regex = "[^" + "".join(products) + "]"
+    deal_skus = re.sub(regex, )
+
+    # Split into multiples
+    wrap(deal_skus, amount)
 
 
 
@@ -98,6 +103,7 @@ def checkout(skus):
 #print(checkout("AAAAAA"))
 #print(checkout("BBBBEEEE"))
 #print(checkout("FFFF"))
+
 
 
 
