@@ -4,10 +4,12 @@ PRICES = {"A": {1: 50, 3: 130, 5: 200},
           "B": {1: 30, 2: 45},
           "C": {1: 20},
           "D": {1: 15},
-          "E": {1: 40}}
+          "E": {1: 40},
+          "F": {1: 10}}
 
 # e.g. 2 Es allow for the removal of 1 B.
-REMOVERS = {"E": (2, "B", 1)}
+REMOVERS = {"E": (2, "B", 1),
+            "F": (3, "F", 1)}
 
 PRICE_QUANTITIES = {product: sorted(deals.keys(), reverse=True) for product, deals in PRICES.iteritems()}
 
@@ -54,4 +56,5 @@ def checkout(skus):
 
 #print(checkout("AAAAAA"))
 #print(checkout("BBBBEEEE"))
+print(checkout("FFFF"))
 
