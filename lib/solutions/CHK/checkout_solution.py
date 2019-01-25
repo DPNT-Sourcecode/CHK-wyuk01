@@ -28,6 +28,7 @@ def checkout(skus):
             price_quantities = sorted(PRICES[product].keys(), reverse=True)
 
             while quantity > 0:
+                print("current quantity for " + product + ": " + str(quantity))
                 for price_quantity in price_quantities:
                     if price_quantity <= quantity:
                         quantity -= price_quantity
@@ -40,12 +41,4 @@ def checkout(skus):
 
 print(checkout(1))
 print(checkout("ABABB"))
-
-
-
-
-
-
-
-
 
