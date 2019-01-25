@@ -1,7 +1,7 @@
 from collections import Counter
 
 PRICES = {"A": {1: 50, 3: 130},
-          "B": {1: 30, 2: 35},
+          "B": {1: 30, 2: 45},
           "C": {1: 20},
           "D": {1: 15}}
 
@@ -25,20 +25,22 @@ def checkout(skus):
     #    add the price to sum and remove quantity. Start again.
     for product, quantity in counts.iteritems():
         if product in PRICES:
-            deals = sorted(PRICES[product].keys(), reverse=True)
+            price_quantities = sorted(PRICES[product].keys(), reverse=True)
 
             while quantity > 0:
-                for amount in deals:
-                    if deal <= quantity:
-                        quantity -= PRICES[product][deal]
-
-
-
+                for price_quantity in price_quantities:
+                    if price_quantity <= quantity:
+                        quantity -= price_quantity
+                        sum += PRICES[product][price_quantity]
         else:
             return -1
 
+    return sum
+
+
 print(checkout(1))
-print(checkout("ABCDEFAB"))
+print(checkout("ABABB"))
+
 
 
 
