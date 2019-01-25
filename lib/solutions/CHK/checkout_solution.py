@@ -36,7 +36,7 @@ REMOVERS = {"E": (2, "B", 1),
             "R": (3, "Q", 1),
             "U": (4, "U", 1)}
 
-COMBO_DEALS = (frozenset("S", "T", "X", "Y", "Z"), 3, 45)
+COMBO_DEALS = (frozenset(["S", "T", "X", "Y", "Z"]), 3, 45)
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -50,7 +50,7 @@ def checkout(skus):
     counts = Counter(skus)
 
     # Firstly handle combo deals.
-    
+
 
 
 
@@ -92,6 +92,7 @@ def checkout(skus):
 #print(checkout("AAAAAA"))
 #print(checkout("BBBBEEEE"))
 #print(checkout("FFFF"))
+
 
 
 
