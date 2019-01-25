@@ -55,8 +55,4 @@ def checkout(skus):
     return total
 
 print(checkout("AAAAAA"))
-print(checkout("BBBBEE"))
-
-
-
-
+print(checkout("BBBBEEEE"))
