@@ -57,7 +57,7 @@ def checkout(skus):
     products, amount, price = COMBO_DEAL
 
     regex = "[^" + "".join(products) + "]"
-    deal_skus = re.sub(regex, "", skus)
+    deal_skus = "".join(sorted(re.sub(regex, "", skus), key=lambda p: PRICES[p][1], reverse=True))
 
     # Split into multiples
     for multiple in wrap(deal_skus, amount):
@@ -103,7 +103,7 @@ def checkout(skus):
 #print(checkout("BBBBEEEE"))
 #print(checkout("FFFF"))
 
-#print(checkout("ZSZX"))
+print(checkout("ZSZXZ"))
 
 
 
