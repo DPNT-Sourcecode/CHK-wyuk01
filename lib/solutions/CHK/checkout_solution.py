@@ -24,10 +24,12 @@ def checkout(skus):
 
     for product, (num_needed_to_remove, product_to_remove, num_to_remove) in REMOVERS.iteritems():
         removal_instances = counts.get(product, 0) // num_needed_to_remove
+        print("instances", removal_instances)
 
         if product_to_remove in counts:
-            new_count = counts[product_to_remove] - (num_to_remove * removal_instances)
-            counts[product_to_remove] = max(0, new_count)
+            new_count = max(0, counts[product_to_remove] - (num_to_remove * removal_instances))
+            print(counts[product_to_remove], new_count)
+            counts[product_to_remove] = new_count
 
     # Loop through each product.
     # If it doesn't exist, return -1
@@ -53,7 +55,7 @@ def checkout(skus):
     return total
 
 print(checkout("AAAAAA"))
-print(checkout("BBBB"))
+print(checkout("BBBBEE"))
 
 
 
