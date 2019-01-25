@@ -37,7 +37,7 @@ REMOVERS = {"E": (2, "B", 1),
             "U": (4, "U", 1)}
 
 # products in the deal listed in descending order of price per unit
-COMBO_DEAL = (sorted(["S", "T", "X", "Y", "Z"], key=lambda x: PRICES[x][1], reverse=True), 3, 45)
+COMBO_DEAL = (frozenset(["S", "T", "X", "Y", "Z"]), 3, 45)
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -53,7 +53,10 @@ def checkout(skus):
     # Firstly handle combo deals.
     # This is horrifically inefficient :(
     products, amount, price = COMBO_DEAL
-    deal_skus = re.sub('[^atcg]', '', str)
+
+    # make a regular expression:
+    regexp = ""
+
 
 
 
@@ -94,4 +97,5 @@ def checkout(skus):
 #print(checkout("AAAAAA"))
 #print(checkout("BBBBEEEE"))
 #print(checkout("FFFF"))
+
 
