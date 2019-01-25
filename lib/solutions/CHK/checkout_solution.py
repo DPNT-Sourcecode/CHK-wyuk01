@@ -4,10 +4,10 @@ PRICES = {"A": {1: 50, 3: 130, 5: 200},
           "B": {1: 30, 2: 45},
           "C": {1: 20},
           "D": {1: 15},
-          "E": {1: }}
+          "E": {1: 40}}
 
 # e.g. 2 Es allow for the removal of 1 B.
-REMOVERS = {"E": {2: ("B", 1)}}
+REMOVERS = {"E": (2, "B", 1)}
 
 PRICE_QUANTITIES = {product: sorted(deals.keys(), reverse=True) for product, deals in PRICES.iteritems()}
 
@@ -23,9 +23,10 @@ def checkout(skus):
     counts = Counter(skus)
 
     # Firstly, check the quantity removers (E)
-    for product in REMOVERS:
+    for product, removal_quantities in REMOVERS.iteritems():
         if product in counts:
-            for
+            product_count = counts[product]
+
 
 
 
@@ -60,4 +61,5 @@ def checkout(skus):
 
 print(checkout("AAAAAA"))
 print(checkout("BBBB"))
+
 
