@@ -102,9 +102,3 @@ def checkout(skus):
 #print(checkout("AAAAAA"))
 #print(checkout("BBBBEEEE"))
 #print(checkout("FFFF"))
-
-print(checkout("ZSZXZ"))
-
-
-
-

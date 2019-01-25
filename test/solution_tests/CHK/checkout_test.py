@@ -15,3 +15,10 @@ class TestSum(unittest.TestCase):
     def test_valid_remover_correctly_removes(self):
         self.assertEqual(checkout_solution.checkout("EEB"), checkout_solution.checkout("EE"))
         self.assertEqual(checkout_solution.checkout("FFF"), checkout_solution.checkout("FF"))
+
+    def test_valid_combo_deal(self):
+        self.assertEqual(checkout_solution.checkout("ZZS"), 45)
+        self.assertEqual(checkout_solution.checkout("ZZSA"), 95)
+
+    def test_vlis_combo_takes_most_expensive_first(self):
+        self.assertEqual(checkout_solution.checkout("SXZZ"), 62)
