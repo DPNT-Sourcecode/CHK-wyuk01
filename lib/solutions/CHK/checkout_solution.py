@@ -7,8 +7,6 @@ PRICES = {"A": {1: 50, 3: 130},
 
 PRICE_QUANTITIES = {product: sorted(deals.keys(), reverse=True) for product, deals in PRICES.iteritems()}
 
-print(PRICE_QUANTITIES)
-
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
@@ -19,7 +17,6 @@ def checkout(skus):
 
     # First get the quantity of each product
     counts = Counter(skus)
-    print(counts)
 
     # Loop through each product.
     # If it doesn't exist, return -1
@@ -31,8 +28,6 @@ def checkout(skus):
         if product in PRICES:
             while quantity > 0:
                 for price_quantity in PRICE_QUANTITIES[product]:
-                    print("checking price quantity " + str(price_quantity))
-                    print("quantity for " + product + " is " + str(quantity))
                     if price_quantity <= quantity:
                         quantity -= price_quantity
                         total += PRICES[product][price_quantity]
@@ -41,4 +36,4 @@ def checkout(skus):
 
     return total
 
-checkout("AA")
+print(checkout("AAAABBB"))
