@@ -3,9 +3,11 @@ from collections import Counter
 PRICES = {"A": {1: 50, 3: 130, 5: 200},
           "B": {1: 30, 2: 45},
           "C": {1: 20},
-          "D": {1: 15}}
+          "D": {1: 15},
+          "E": {1: }}
 
-QUANTITY_REMOVALS = {"E": {2: frozenset(("B", 1))}}
+# e.g. 2 Es allow for the removal of 1 B.
+REMOVERS = {"E": {2: ("B", 1)}}
 
 PRICE_QUANTITIES = {product: sorted(deals.keys(), reverse=True) for product, deals in PRICES.iteritems()}
 
@@ -21,7 +23,9 @@ def checkout(skus):
     counts = Counter(skus)
 
     # Firstly, check the quantity removers (E)
-    # do E quant modulo its
+    for product in REMOVERS:
+        if product in counts:
+            for
 
 
 
@@ -37,6 +41,8 @@ def checkout(skus):
     #    loop through the quantities it is priced for from
     #    highest to lowest. If there is enough quantity,
     #    add the price to sum and remove quantity. Start again.
+
+    # CHange this to use module so that I dont need a break and just one loop.
     for product, quantity in counts.iteritems():
         if product in PRICES:
             while quantity > 0:
@@ -54,3 +60,4 @@ def checkout(skus):
 
 print(checkout("AAAAAA"))
 print(checkout("BBBB"))
+
