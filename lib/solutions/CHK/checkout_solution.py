@@ -37,7 +37,9 @@ REMOVERS = {"E": (2, "B", 1),
             "U": (4, "U", 1)}
 
 # products in the deal listed in descending order of price
-COMBO_DEALS = (["S", "T", "X", "Y", "Z"].sort(), 3, 45)
+COMBO_DEALS = (sorted(["S", "T", "X", "Y", "Z"], key=lambda x: PRICES[x][1], reverse=True), 3, 45)
+
+print(COMBO_DEALS)
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -96,10 +98,3 @@ def checkout(skus):
 #print(checkout("AAAAAA"))
 #print(checkout("BBBBEEEE"))
 #print(checkout("FFFF"))
-
-
-
-
-
-
-
