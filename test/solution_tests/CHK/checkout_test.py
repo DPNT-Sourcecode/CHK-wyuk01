@@ -6,7 +6,7 @@ class TestSum(unittest.TestCase):
         self.assertEqual(checkout_solution.checkout(1), -1)
 
     def test_invalid_sku_gives_minus_one(self):
-        self.assertEqual(checkout_solution.checkout("G"), -1)
+        self.assertEqual(checkout_solution.checkout("a"), -1)
 
     def test_valid_sku_gives_correct_price(self):
         for product, price_quantities in checkout_solution.PRICES.iteritems():
