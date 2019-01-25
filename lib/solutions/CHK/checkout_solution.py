@@ -5,13 +5,17 @@ PRICES = {"A": {1: 50, 3: 130},
           "C": {1: 20},
           "D": {1: 15}}
 
+PRICE_QUANTITIES = {product: sorted(deals.keys(), reverse=True) for product, deals in PRICES.iteritems()}
+
+print(PRICE_QUANTITIES)
+
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
     if not isinstance(skus, basestring):
         return -1
 
-    sum = 0
+    total = 0
 
     # First get the quantity of each product
     counts = Counter(skus)
@@ -25,20 +29,16 @@ def checkout(skus):
     #    add the price to sum and remove quantity. Start again.
     for product, quantity in counts.iteritems():
         if product in PRICES:
-            price_quantities = sorted(PRICES[product].keys(), reverse=True)
-
             while quantity > 0:
-                print("current quantity for " + product + ": " + str(quantity))
-                for price_quantity in price_quantities:
+                for price_quantity in PRICE_QUANTITIES[product]:
+                    print("checking price quantity " + str(price_quantity))
+                    print("quantity for " + product + " is " + str(quantity))
                     if price_quantity <= quantity:
                         quantity -= price_quantity
-                        sum += PRICES[product][price_quantity]
+                        total += PRICES[product][price_quantity]
         else:
             return -1
 
-    return sum
+    return total
 
-
-print(checkout(1))
-print(checkout("ABABB"))
-
+checkout("AA")
