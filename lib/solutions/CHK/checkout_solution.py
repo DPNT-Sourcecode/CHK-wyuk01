@@ -37,9 +37,7 @@ REMOVERS = {"E": (2, "B", 1),
             "U": (4, "U", 1)}
 
 # products in the deal listed in descending order of price
-COMBO_DEALS = (sorted(["S", "T", "X", "Y", "Z"], key=lambda x: PRICES[x][1], reverse=True), 3, 45)
-
-print(COMBO_DEALS)
+COMBO_DEAL = (sorted(["S", "T", "X", "Y", "Z"], key=lambda x: PRICES[x][1], reverse=True), 3, 45)
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -53,9 +51,12 @@ def checkout(skus):
     counts = Counter(skus)
 
     # Firstly handle combo deals.
-    for products, amount, price in COMBO_DEALS:
-        # list he products in the deal in descending order.
-        prices = []
+    # This is horrifically inefficient :(
+    # for products, amount, price in COMBO_DEAL:
+    #
+    #     for product in products:
+
+
 
 
 
