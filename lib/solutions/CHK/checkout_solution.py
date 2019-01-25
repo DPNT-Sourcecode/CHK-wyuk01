@@ -5,6 +5,8 @@ PRICES = {"A": {1: 50, 3: 130, 5: 200},
           "C": {1: 20},
           "D": {1: 15}}
 
+QUANTITY_REMOVALS = {"E": {2: frozenset(("B", 1))}}
+
 PRICE_QUANTITIES = {product: sorted(deals.keys(), reverse=True) for product, deals in PRICES.iteritems()}
 
 # noinspection PyUnusedLocal
@@ -17,6 +19,17 @@ def checkout(skus):
 
     # First get the quantity of each product
     counts = Counter(skus)
+
+    # Firstly, check the quantity removers (E)
+    # do E quant modulo its
+
+
+
+
+
+
+
+
 
     # Loop through each product.
     # If it doesn't exist, return -1
