@@ -50,7 +50,8 @@ def checkout(skus):
     counts = Counter(skus)
 
     # Firstly handle combo deals.
-    combo_counts = {product: quantity for product, quantity in }
+    combo_counts = {product: quantity for product, quantity in counts.iteritems() if product in COMBO_DEALS[0]}
+    
 
 
     # Secondly handle removals
@@ -90,4 +91,5 @@ def checkout(skus):
 #print(checkout("AAAAAA"))
 #print(checkout("BBBBEEEE"))
 #print(checkout("FFFF"))
+
 
