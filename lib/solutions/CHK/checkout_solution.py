@@ -11,12 +11,21 @@ def checkout(skus):
     if not isinstance(skus, basestring):
         return -1
 
-    counts = Counter(skus)
+    sum = 0
 
+    counts = Counter(skus)
     print(counts)
 
+    for product in counts:
+        if product in counts:
+            pass
 
-checkout("ABCDEFAB")
+        else:
+            return -1
+
+print(checkout(1))
+print(checkout("ABCDEFAB"))
+
 
 
 
