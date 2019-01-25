@@ -37,10 +37,14 @@ def checkout(skus):
     #    loop through the quantities it is priced for from
     #    highest to lowest. If there is enough quantity,
     #    add the price to sum and remove quantity. Start again.
-
-    # CHange this to use module so that I dont need a break and just one loop.
     for product, quantity in counts.iteritems():
         if product in PRICES:
+            for price_quantity in PRICE_QUANTITIES[product]:
+                saving_instances = price_quantity // quantity
+
+                if saving_instances > 0:
+
+
             while quantity > 0:
                 #print("quantity", product, quantity)
                 for price_quantity in PRICE_QUANTITIES[product]:
