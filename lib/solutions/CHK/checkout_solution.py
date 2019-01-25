@@ -23,9 +23,11 @@ def checkout(skus):
     counts = Counter(skus)
 
     # Firstly, check the quantity removers (E)
-    for product, removal_quantities in REMOVERS.iteritems():
-        if product in counts:
-            product_count = counts[product]
+    for product, (num_needed_to_remove, product_to_remove, num_to_remove) in REMOVERS.iteritems():
+        product_count = counts.get(product, 0)
+
+        removal_instances = 
+
 
 
 
@@ -61,5 +63,6 @@ def checkout(skus):
 
 print(checkout("AAAAAA"))
 print(checkout("BBBB"))
+
 
 
