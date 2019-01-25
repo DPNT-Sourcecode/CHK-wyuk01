@@ -51,6 +51,9 @@ def checkout(skus):
 
     # Firstly handle combo deals.
     combo_counts = {product: quantity for product, quantity in counts.iteritems() if product in COMBO_DEALS[0]}
+    saving_instances = reduce(lambda x, y: x + y, combo_counts.itervalues(), 0)
+    total += saving_instances * COMBO_DEALS[3]
+
     
 
 
@@ -91,5 +94,6 @@ def checkout(skus):
 #print(checkout("AAAAAA"))
 #print(checkout("BBBBEEEE"))
 #print(checkout("FFFF"))
+
 
 
